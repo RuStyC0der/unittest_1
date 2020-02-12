@@ -53,6 +53,18 @@ class equivalenceClassTests(unittest.TestCase):
     def test_inRangeTM4(self):
         self.assertEqual(604.0409999999999, self.testObject.testMethod4(self.maxRange - self.minRange))
 
+    def test_NotADigitTM1(self):
+        self.assertRaises(NotADigit, self.testObject.testMethod1, "asd")
+
+    def test_NotADigitTM2(self):
+        self.assertRaises(NotADigit, self.testObject.testMethod2, "asd")
+
+    def test_NotADigitTM3(self):
+        self.assertRaises(NotADigit, self.testObject.testMethod3, "asd")
+
+    def test_NotADigitTM4(self):
+        self.assertRaises(NotADigit, self.testObject.testMethod4, "asd")
+
 
 
 class BoundaryValueClassTests(unittest.TestCase):

@@ -5,6 +5,9 @@ class MoreThanRange(ValueError):
 class LessThanRange(ValueError):
     pass
 
+class NotADigit(ValueError):
+    pass
+
 
 class MathForTests:
 
@@ -13,6 +16,13 @@ class MathForTests:
 
     @classmethod
     def rangeCheck(cls, x):
+
+        try:
+            float(x)
+        except ValueError:
+            raise NotADigit
+
+
         if x > cls.maxRange:
             raise MoreThanRange
         elif x < cls.minRange:
@@ -55,6 +65,6 @@ if __name__ == '__main__':
     print(a.testMethod1(2))
     print(a.testMethod2(2))
     print(a.testMethod3(2))
-    print(a.testMethod4(2))
+    print(a.testMethod4("dfgb"))
     print(a.testMethod1(maxRange - minRange))
     print(a.testMethod1(minRange-1))
